@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="gemStore" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="gemStore" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="gemStore" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="gemStore" class="no-js"> <!--<![endif]-->
+<head lang="en">
+<!-- Basic Page Needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AngularJS Gem Store App</title>
+  <meta name="description" content="">
+<!-- Apple Touch Icons ================================================== --> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CSS
+  ================================================== -->
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/reset.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap.css.map">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/bootstrap-theme.min.css">  
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="products.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</head>
+<body  class="container" ng-controller="StoreController as store">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">    
+        <div class='container'>
+            <div class='navbar-header'>
+                <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                   <span class='sr-only'> Toggle navigation</span>
+                   <span class='icon-bar'></span>
+                   <span class='icon-bar'></span>
+                   <span class='icon-bar'></span>
+                </button>
+                <a class='navbar-brand' href='index.html' >
+                    AngularJS Store Template<br/>
+                         
+                </a>
+                
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class=' nav navbar-nav navbar-right collapse navbar-collapse text-center'>
+                            <li><a href="#/view2" class="">Home</a></li>  
+                            
+                            
+               </ul>    
+            </div><!-- /.navbar-collapse -->
+          
+        </div><!-- ./container -->
+    </nav>
+<!--  Products Container  -->
+    <ul class="list-group">
+       <li class="list-group-item" ng-repeat="product in store.products">
+        <product-title></product-title>
+          
+         <!-- IMAGE GALLERY  -->
+            <product-gallery></product-gallery>
+           
+        <!-- PRODUCT PANEL -->
+            <product-tabs></product-tabs>
+           
+        <!--  DESCRIPTION PANEL CONTENT  -->
+           <div>
+           <product-description ng-show="panel.isSelected(1)"></product-description>
+           </div>
+           
+        <!--  SPEC PANEL CONTENT  -->
+          <div product-specs ng-show="panel.isSelected(2)"></div>
+                
+            <!--  REVIEW FORM -->
+         
+             <div>
+            <product-reviews ng-show="panel.isSelected(3)"></product-reviews>      
+             </div>
+         
+     
+        </li>         
+     </ul>
+          
+  <div>Angular seed app: v<span app-version></span></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+</body>
+</html>
